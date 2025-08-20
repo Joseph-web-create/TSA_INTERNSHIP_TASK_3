@@ -1,20 +1,12 @@
 export const validateName = (name) => {
-  const validRegex = /^[A-Z][a-zA-Z'-]{4,49}$/;
-  if (!name) {
-    return "First Name is required.";
-  } else if (!validRegex.test(name)) {
-    return "Please enter a valid First name.";
-  }
+  if (!name) return "First Name is required.";
+
   return null;
 };
 
 export const validateName1 = (name) => {
-  const validRegex = /^[A-Z][a-zA-Z'-]{4,49}$/;
-  if (!name) {
-    return "Last Name is required.";
-  } else if (!validRegex.test(name)) {
-    return "Please enter a valid Last name.";
-  }
+  if (!name) return "Last Name is required.";
+
   return null;
 };
 
