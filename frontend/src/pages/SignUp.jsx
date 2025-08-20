@@ -12,7 +12,7 @@ import { registerUser } from "../api/auth";
 import { toast } from "sonner";
 import handleError from "../utils/handleError";
 
-export const Login = () => {
+export const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -182,7 +182,11 @@ export const Login = () => {
           type="submit"
           disabled={isSubmitting}
         >
-          Submit
+          {isSubmitting ? (
+            <span className="loading loading-dots loading-lg"></span>
+          ) : (
+            "SIgn Up"
+          )}
         </button>
         <div className="flex w-full flex-col">
           <div className="divider text-[14px]">OR</div>

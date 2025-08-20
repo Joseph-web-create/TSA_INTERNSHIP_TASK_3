@@ -1,14 +1,22 @@
 import { AuthLayout } from "../layout/AuthLayout";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import { SignUp } from "../pages/Login";
-import { Login } from "../pages/SignUp";
+import { PrivateRoutes, PublicRoutes } from "./ProtectedRoute";
+import { useAuth } from "../store";
+import { RootLayout } from "../layout/RootLayout";
+import { SignUp } from "../pages/SignUp";
+import { Login } from "../pages/Login";
 
 export const AppRoutes = () => {
+  const { accessToken } = useAuth();
   const routes = [
     {
       path: "auth",
-      element: <AuthLayout />,
+      element: (
+        <PublicRoutes accessToken={accessToken}>
+          <AuthLayout />
+        </PublicRoutes>
+      ),
       children: [
         {
           path: "register",
@@ -19,6 +27,14 @@ export const AppRoutes = () => {
           element: <Login />,
         },
       ],
+    },
+    {
+      path: "/",
+      element: (
+        <PrivateRoutes accessToken={accessToken}>
+          <RootLayout />
+        </PrivateRoutes>
+      ),
     },
   ];
 

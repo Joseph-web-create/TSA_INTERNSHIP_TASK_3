@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { validateEmail, validateNewPassword } from "../utils/FormValidate";
 import { Link, useNavigate } from "react-router";
-import { registerUser } from "../api/auth";
+import { loginUser } from "../api/auth";
 import { toast } from "sonner";
 import handleError from "../utils/handleError";
 import { useAuth } from "../store";
 
-export const SignUp = () => {
+export const Login = () => {
   const {
     register,
     handleSubmit,
@@ -17,12 +17,22 @@ export const SignUp = () => {
   const navigate = useNavigate();
   const { setAccessToken } = useAuth();
 
-  const onSubmitForm = async (data) => {
-    console.log(data);
-  };
-
   const togglePassword = () => {
     setIsVisible((prev) => !prev);
+  };
+
+  const onSubmitForm = async (data) => {
+    try {
+      const res = await loginUser(data);
+
+      if (res.status === 200) {
+        toast.success(res.data.message);
+        setAccessToken(res.data.accessToken);
+        navigate("/");
+      }
+    } catch (error) {
+      handleError(error);
+    }
   };
 
   return (
@@ -94,7 +104,11 @@ export const SignUp = () => {
           type="submit"
           disabled={isSubmitting}
         >
-          Submit
+          {isSubmitting ? (
+            <span className="loading loading-dots loading-lg"></span>
+          ) : (
+            "SIgn Up"
+          )}
         </button>
 
         <div className="flex w-full flex-col">
