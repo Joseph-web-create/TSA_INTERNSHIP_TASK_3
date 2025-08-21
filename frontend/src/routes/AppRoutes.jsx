@@ -1,7 +1,7 @@
 import { AuthLayout } from "../layout/AuthLayout";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import { PrivateRoutes, PublicRoutes } from "./ProtectedRoute";
+import { PublicRoutes } from "./ProtectedRoute";
 import { useAuth } from "../store";
 import { RootLayout } from "../layout/RootLayout";
 import { SignUp } from "../pages/SignUp";
@@ -30,11 +30,7 @@ export const AppRoutes = () => {
     },
     {
       path: "/",
-      element: (
-        <PrivateRoutes accessToken={accessToken}>
-          <RootLayout />
-        </PrivateRoutes>
-      ),
+      element: <RootLayout />,
     },
   ];
 

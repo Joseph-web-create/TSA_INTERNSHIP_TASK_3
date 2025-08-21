@@ -1,4 +1,5 @@
-import React from "react";
+import HeaderSection from "../components/HeaderSection";
+import PropertSection from "../components/PropertSection";
 import { useAuth } from "../store";
 
 export const RootLayout = () => {
@@ -6,5 +7,10 @@ export const RootLayout = () => {
 
   console.log(user);
 
-  return <div>RootLayout</div>;
+  return (
+    <div>
+      <HeaderSection />
+      <PropertSection />
+    </div>
+  );
 };

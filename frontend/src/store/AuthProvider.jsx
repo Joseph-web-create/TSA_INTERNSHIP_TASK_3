@@ -44,7 +44,9 @@ export default function AuthProvider({ children }) {
   }, [accessToken, handleLogOut]);
 
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken, user }}>
+    <AuthContext.Provider
+      value={{ accessToken, setAccessToken, user, handleLogOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
