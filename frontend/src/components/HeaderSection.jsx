@@ -8,9 +8,9 @@ const HeaderSection = () => {
       <img
         src={img}
         alt="background img"
-        className="w-full  h-[100vh] lg:max-h-[80vh] object-cover"
+        className="w-full  h-[80vh] lg:max-h-[80vh] object-cover"
       />
-      <div className="bg-[#00000046] h-[100vh] lg:max-h-[80vh] w-full absolute top-0">
+      <div className="bg-[#00000046] h-[80vh] lg:max-h-[80vh] w-full absolute top-0">
         <div className="max-w-[1024px] mx-auto">
           <Header />
           <div className="text-center text-white mt-18">
