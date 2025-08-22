@@ -125,7 +125,7 @@ export const Login = () => {
         </div>
         <div className="flex gap-1 justify-center mt-4">
           <span>New User?</span>
-          <Link to="/auth/login" className="text-[#3D9970]">
+          <Link to="/auth/register" className="text-[#3D9970]">
             Sign Up
           </Link>
         </div>
