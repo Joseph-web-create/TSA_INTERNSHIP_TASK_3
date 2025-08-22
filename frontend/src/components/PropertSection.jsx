@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { content1, content2, content3 } from "../constants/contens";
-import Card from "./card";
+import Card from "./Card";
 
 const PropertSection = () => {
   const [next, setNext] = useState(1);
